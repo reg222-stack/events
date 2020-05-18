@@ -21,8 +21,6 @@ const Profile = () => {
     Router.replace('/')
   }
 
-  const { picture, name, locale } = user
-
   return (
     <div className="Profile">
       <Head>
@@ -35,15 +33,15 @@ const Profile = () => {
             <div className="col-md-12">
               <h1>Here is your profile information</h1>
             </div>
-            <div className="col-md-3">
+            {user && <div className="col-md-3">
               <img
-                src={picture}
+                src={user.picture}
                 alt="profilepicture"
                 className="Profile-Picture"
               />
-              <h2>{name}</h2>
-              <strong>{locale}</strong>
-            </div>
+              <h2>{user.name}</h2>
+              <strong>{user.locale}</strong>
+            </div>}
           </div>
         </Container>
       </PublicLayout>

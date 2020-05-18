@@ -28,7 +28,7 @@ const HomePage = () => {
           <div className="row">
             <div className="col-md-12 HomePage-Content">
               <h1>
-                Login to see your profile and vist Event Listing page.
+                Login to see your profile and visit Event Listing page.
               </h1>
             </div>
           </div>

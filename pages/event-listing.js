@@ -1,16 +1,28 @@
 import Head from 'next/head'
+import Router from 'next/router'
 import React from 'react'
 import Container from 'components/Container'
 import Progress from 'components/Progress'
 import Link from 'components/Link'
 import PublicLayout from 'containers/PublicLayout'
+import { useFetchUser } from 'utils/user.js';
 
 import EventsMockData from '../mocks/eventsMock.js'
 
 import './event-listing.scss'
 
 const EventListing = () =>{
-  console.log(EventsMockData().events, 'EventsMockData')
+
+  const { user, loading } = useFetchUser()
+
+  if (loading) {
+    return <p>Loading ..</p>
+  }
+
+  if (!user && !loading) {
+    Router.replace('/')
+  }
+
   return (
   <div className="EventListing">
     <Head>
